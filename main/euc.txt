@@ -1,0 +1,15 @@
+SYS: pxttpOS
+COMMAND:
+	start [...]
+	mmlplay[*.mml]
+	tview[*.txt]
+	mem
+	exit
+	cls
+	langemode
+	gview[Picture File]
+	invader
+	lines
+	noodle
+	star[1,s]
+	winhelo[2,3]
