@@ -1,0 +1,25 @@
+     1 00000000                                 [FORMAT "WCOFF"]
+     2 00000000                                 [INSTRSET "i486p"]
+     3 00000000                                 [OPTIMIZE 1]
+     4 00000000                                 [OPTION 1]
+     5 00000000                                 [BITS 32]
+     6 00000000                                 	EXTERN	_api_putstr1
+     7 00000000                                 	EXTERN	_api_end
+     8 00000000                                 [FILE "a.c"]
+     9                                          [SECTION .data]
+    10 00000000                                 LC0:
+    11 00000000 57 45 4C 43 4F 4D 45 20 54 4F   	DB	"WELCOME TO PXTTP SYS!!!!!!!",0x00
+       0000000A 20 50 58 54 54 50 20 53 59 53 
+       00000014 21 21 21 21 21 21 21 00 
+    12                                          [SECTION .text]
+    13 00000000                                 	GLOBAL	_HariMain
+    14 00000000                                 _HariMain:
+    15 00000000 55                              	PUSH	EBP
+    16 00000001 89 E5                           	MOV	EBP,ESP
+    17 00000003 6A 1C                           	PUSH	28
+    18 00000005 68 [00000000]                   	PUSH	LC0
+    19 0000000A E8 [00000000]                   	CALL	_api_putstr1
+    20 0000000F 58                              	POP	EAX
+    21 00000010 5A                              	POP	EDX
+    22 00000011 C9                              	LEAVE
+    23 00000012 E9 [00000000]                   	JMP	_api_end
