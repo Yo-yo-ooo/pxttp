@@ -1,0 +1,27 @@
+     1 00000000                                 [FORMAT "WCOFF"]
+     2 00000000                                 [INSTRSET "i486p"]
+     3 00000000                                 [BITS 32]
+     4 00000000                                 [FILE "api028.nas"]
+     5 00000000                                 
+     6 00000000                                 		GLOBAL	_api_locime
+     7 00000000                                 
+     8                                          [SECTION .text]
+     9 00000000                                 
+    10 00000000                                 _api_locime:		; int api_getlang(void);
+    11 00000000 B0 08                           		MOV AL,8
+    12 00000002 E6 70                                   OUT 70h,AL
+    13 00000004 E4 71                                   IN AL,71h
+    14 00000006 B1 04                                   MOV CL,4
+    15 00000008 D2 EC                                   SHR AH,CL
+    16 0000000A 24 0F                                   AND AL,00001111b
+    17 0000000C 80 C4 30                                ADD AH,30h
+    18 0000000F 04 30                                   ADD AL,30h
+    19 00000011 66 BB B800                              MOV BX,0b800h
+    20 00000015 8E C3                                   MOV ES,BX
+    21 00000017                                         MOV BYTE PTR ES:[160*12+40*2],AH
+      >> [ERROR #002] parameter error.
+    22 00000017                                         MOV BYTE PTR ES:[160*12+40*2+2],AL
+      >> [ERROR #002] parameter error.
+    23 00000017 66 B8 4C00                              MOV AX,4c00h
+    24 0000001B CD 21                                   INT 21h
+    25 0000001D                                 
